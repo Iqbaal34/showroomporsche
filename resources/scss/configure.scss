@@ -1,0 +1,286 @@
+$font-main: 'Poppins', sans-serif;
+$bg-color: #f9f6f1;
+$text-color: #1e1e1e;
+$accent: #000000;
+$shadow: rgba(0, 0, 0, 0.08);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $font-main;
+  background-color: $bg-color;
+  color: $text-color;
+  overflow-x: hidden;
+  min-height: 100vh;
+}
+
+// ===============================
+// 🔹 NAVBAR CONFIGURE PAGE
+// ===============================
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.2rem 2rem;
+  background-color: transparent;
+
+  .left {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+
+    .back-btn {
+      font-size: 1.3rem;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+      &:hover {
+        transform: translateX(-3px);
+      }
+    }
+
+    span {
+      font-weight: 500;
+      font-size: 1rem;
+    }
+  }
+
+  .logo {
+    height: 38px;
+    object-fit: contain;
+  }
+}
+
+// ===============================
+// 🔹 PAGE LAYOUT
+// ===============================
+.configure-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 4rem;
+
+  h1 {
+    font-family: 'Cursive', sans-serif;
+    font-weight: 500;
+    font-size: 2.8rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .badge {
+    display: inline-block;
+    background-color: #e8e6e2;
+    color: #333;
+    padding: 0.2rem 0.8rem;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    margin-left: 0.5rem;
+  }
+
+  // ===============================
+  // 🔹 GRID LAYOUT (2 kolom)
+  // ===============================
+  .config-container {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 3rem;
+    width: 100%;
+    margin-top: 2rem;
+
+    // ===============================
+    // 🔹 LEFT IMAGE PANEL
+    // ===============================
+    .car-image {
+      width: 100%;
+      height: 400px;
+      background-color: #fff;
+      box-shadow: 0 4px 16px $shadow;
+      border-radius: 12px;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      img {
+        width: 100%;
+        height: auto;
+        display: block;
+        border-radius: 12px;
+        transition: opacity 0.35s ease-in-out, transform 0.4s ease-in-out;
+        opacity: 1;
+
+        &.fade-out {
+          opacity: 0;
+          transform: scale(1.02);
+        }
+
+        &.fade-in {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+    }
+
+    // ===============================
+    // 🔹 RIGHT CONFIG PANEL
+    // ===============================
+    .config-panel {
+      background: #fff;
+      padding: 2rem;
+      border-radius: 16px;
+      box-shadow: 0 8px 24px $shadow;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      justify-content: space-between;
+
+      h2 {
+        font-size: 1.4rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+      }
+
+      .section {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+        label {
+          font-weight: 500;
+          font-size: 1rem;
+        }
+
+        // ===============================
+        // 🔹 COLOR OPTIONS
+        // ===============================
+        .color-options {
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+
+          .color-circle {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border: 2px solid transparent;
+            cursor: pointer;
+            transition: all 0.3s ease;
+
+            &.active {
+              border: 2px solid $accent;
+              transform: scale(1.1);
+            }
+
+            &.black {
+              background-color: #1a1a1a;
+            }
+            &.white {
+              background-color: #eaeaea;
+              border: 1px solid #ccc;
+            }
+            &.red {
+              background-color: #d82323;
+            }
+            &.blue {
+              background-color: #245ad8;
+            }
+
+            &:hover {
+              transform: scale(1.08);
+            }
+          }
+
+          .color-name {
+            margin-left: 1rem;
+            font-weight: 500;
+            color: #444;
+          }
+        }
+
+        // ===============================
+        // 🔹 TYPE OPTIONS
+        // ===============================
+        .type-options {
+          display: flex;
+          gap: 0.8rem;
+
+          button {
+            background: #f1f1f1;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            padding: 0.5rem 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+
+            &.active {
+              background: $accent;
+              color: #fff;
+              border-color: $accent;
+            }
+
+            &:hover {
+              background-color: #e3e3e3;
+            }
+          }
+        }
+      }
+
+      // ===============================
+      // 🔹 PRICE SECTION
+      // ===============================
+      .price {
+        margin-top: 1.5rem;
+        font-size: 1.2rem;
+
+        span {
+          font-weight: 600;
+          font-size: 1.4rem;
+          display: block;
+          margin-top: 0.4rem;
+        }
+      }
+
+      // ===============================
+      // 🔹 CONTINUE BUTTON
+      // ===============================
+      .continue-btn {
+        background-color: $accent;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        padding: 1rem;
+        font-weight: 500;
+        font-size: 1.1rem;
+        cursor: pointer;
+        transition: 0.25s ease;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+        &:hover {
+          transform: translateY(-2px);
+          background-color: #111;
+        }
+
+        &:active {
+          transform: scale(0.98);
+        }
+      }
+    }
+  }
+}
+
+// ===============================
+// 🔹 RESPONSIVE DESIGN
+// ===============================
+@media (max-width: 992px) {
+  .configure-page {
+    padding: 2rem;
+    .config-container {
+      grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+  }
+}

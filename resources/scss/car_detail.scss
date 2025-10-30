@@ -24,7 +24,7 @@ body {
   }
 
   .logo {
-    height: 5rem;
+    height: 7rem;
     margin-right: 2rem;
   }
 }
@@ -36,17 +36,9 @@ body {
   justify-content: center;
   margin-top: 3rem;
 
-  .model-name {
-    font-size: 6rem;
-    font-weight: 600;
-    color: #000;
-    font-family: 'Brush Script MT', cursive;
-    margin-bottom: -1rem;
-  }
-
-  .car-img {
-    width: 80%;
-    max-width: 900px;
+  .car-hero-img {
+    width: 85%;
+    max-width: 1300px;
     height: auto;
     margin-bottom: 2rem;
   }
@@ -64,6 +56,7 @@ body {
     color: #fff;
     font-size: 1rem;
     font-weight: 500;
+    font-family: $main-font;
     border: none;
     border-radius: 30px;
     padding: 12px 40px;
@@ -74,5 +67,197 @@ body {
       transform: scale(1.05);
       background-color: #111;
     }
+  }
+}
+.porsche-detail {
+  display: flex;
+  justify-content: center;
+  margin-top: 6rem;
+  padding: 2rem 0;
+
+  .detail-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 90%;
+    max-width: 1300px;
+    position: relative;
+  }
+
+  .car-back {
+    width: 90%;
+    max-width: 700px;
+    margin-bottom: 2rem;
+  }
+
+  .detail-left {
+    position: absolute;
+    margin-right: 80rem;
+    top: 30%;
+    text-align: left;
+
+    .text-img {
+      width: 200px;
+      margin-bottom: 1rem;
+    }
+
+    .price-label {
+      font-size: 1rem;
+      color: #333;
+      margin-bottom: 0.3rem;
+    }
+
+    .price {
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: #004c70;
+    }
+  }
+
+  .detail-right {
+    position: absolute;
+    margin-left: 80rem;
+    top: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 1.5rem;
+
+    .specs {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2.5rem;
+
+      .spec-box {
+        background: white;
+        border-radius: 20px;
+        box-shadow: 0px 5px 10px rgba(0,0,0,0.3);
+        width: 135px;
+        height: 100px;
+        padding: 1rem 0.8rem;
+        text-align: center;
+
+        h3 {
+          margin: 0;
+          font-size: 1.5rem;
+          font-weight: 400;
+        }
+
+        p {
+          margin: 0;
+          font-size: 0.9rem;
+          color: #777;
+        }
+
+        &.green h3 { color: #000; }
+        &.orange h3 { color: #000; }
+        &.blue h3 { color: #000; }
+        &.navy h3 { color: #000; }
+      }
+    }
+
+    .video-preview {
+      margin-top: 0.5rem;
+
+      img {
+        width: 250px;
+        border-radius: 15px;
+        box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        cursor: pointer;
+        transition: transform 0.3s ease;
+
+        &:hover {
+          transform: scale(1.03);
+        }
+      }
+    }
+  }
+}
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -400px;
+  width: 280px;
+  height: 100vh;
+  background-color: #fffdfa;
+  box-shadow: 4px 0 15px rgba(0, 0, 0, 0.1);
+  transition: left 0.4s ease;
+  padding: 2rem 1.5rem;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &.active {
+    left: 0;
+  }
+
+  .sidebar-header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-bottom: 2rem;
+
+    .close-btn {
+      cursor: pointer;
+      font-size: 1rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+  }
+
+  .sidebar-menu {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-grow: 1;
+
+    li {
+      margin: 1.5rem 0;
+      a {
+        color: #1e1e1e;
+        font-weight: 500;
+        text-decoration: none;
+        font-size: 1.1rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: color 0.3s;
+        &:hover {
+          color: #255f38;
+        }
+      }
+    }
+  }
+
+  .logout {
+    a {
+      color: #b70000;
+      text-decoration: none;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 0px;
+      z-index: 9;
+      margin-bottom: 5rem;
+    }
+  }
+}
+
+/* === OVERLAY === */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.4s ease;
+  z-index: 999;
+
+  &.active {
+    opacity: 1;
+    visibility: visible;
   }
 }

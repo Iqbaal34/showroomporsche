@@ -5,7 +5,7 @@ $accent-color: #0d391b;
 $main-color: #255f38;
 
 html {
-  scroll-behavior: smooth;
+    scroll-behavior: smooth;
 }
 
 body {
@@ -176,6 +176,110 @@ button.start {
             line-height: 1.4;
             text-shadow: 0 1px 3px rgba(0, 0, 0, 0.7);
             text-align: left;
+        }
+    }
+}
+/* === SIDEBAR ANIMATION === */
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: -400px;
+    width: 280px;
+    height: 100vh;
+    background-color: #fffdfa;
+    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.1);
+    transition: left 0.4s ease;
+    padding: 2rem 1.5rem;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &.active {
+        left: 0;
+    }
+
+    .sidebar-header {
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        margin-bottom: 2rem;
+
+        .close-btn {
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+    }
+
+    .sidebar-menu {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        flex-grow: 1;
+
+        li {
+            margin: 1.5rem 0;
+            a {
+                color: #1e1e1e;
+                font-weight: 500;
+                text-decoration: none;
+                font-size: 1.1rem;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                transition: color 0.3s;
+                &:hover {
+                    color: #255f38;
+                }
+            }
+        }
+    }
+
+    .logout {
+        a {
+            color: #b70000;
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0px;
+            z-index: 9;
+            margin-bottom: 5rem;
+        }
+    }
+    .login {
+        a {
+            color: #1e1e1e;
+            text-decoration: none;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0px;
+            z-index: 9;
+            margin-bottom: 5rem;
+        }
+        &hover {
+            color: #255f38;
+        }
+    }
+
+    /* === OVERLAY === */
+    .overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 0, 0, 0.35);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.4s ease;
+        z-index: 999;
+
+        &.active {
+            opacity: 1;
+            visibility: visible;
         }
     }
 }
